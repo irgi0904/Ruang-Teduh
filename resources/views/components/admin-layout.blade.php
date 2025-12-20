@@ -46,7 +46,7 @@
             
             <div class="h-16 flex items-center justify-center border-b border-gold/30 bg-void/50 shadow-md z-20">
                 <h1 class="text-xl font-serif italic text-gold">
-                    ruang teduh.
+                    Ruang Teduh.
                 </h1>
             </div>
 
@@ -62,7 +62,7 @@
                     </a>
 
                     <div class="pt-4 pb-1 pl-4 text-xs font-semibold text-dim uppercase tracking-wider">
-                        Master Data
+                        Data
                     </div>
 
                     <a href="{{ route('admin.products.index') }}" 

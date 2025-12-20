@@ -4,32 +4,36 @@ namespace App\Http\Controllers\Kasir;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class KasirDashboardController extends Controller
 {
     public function index()
     {
-        $todayTransactionCount = Order::whereDate('created_at', today())->count();
+        $today = Carbon::today();
         
-        $todayRevenue = Order::where('status', 'completed')
-            ->whereDate('created_at', today())
+        $todayRevenue = Order::whereDate('created_at', $today)
+            ->where('status', 'completed')
             ->sum('total');
-        
-        $pendingOrders = Order::where('status', 'pending')->count();
-        $processingOrders = Order::where('status', 'processing')->count();
 
-        $recentOrders = Order::with(['user', 'items'])
+        $recentOrders = Order::whereDate('created_at', $today)
+            ->with(['kasir'])
             ->latest()
             ->take(10)
             ->get();
 
+        $pendingOrders = Order::where('status', 'pending')->count();
+        $processingOrders = Order::where('status', 'processing')->count();
+        $completedToday = Order::whereDate('created_at', $today)
+            ->where('status', 'completed')
+            ->count();
+
         return view('kasir.dashboard', compact(
-            'todayTransactionCount',
-            'todayRevenue',
-            'pendingOrders',
-            'processingOrders',
-            'recentOrders'
+            'todayRevenue', 
+            'recentOrders', 
+            'pendingOrders', 
+            'processingOrders', 
+            'completedToday'
         ));
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('order_number', 50)->unique();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->foreignId('cashier_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('kasir_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('customer_name', 150);
             $table->string('customer_phone', 20)->nullable();
             $table->string('order_type', 20)->default('dine_in');
