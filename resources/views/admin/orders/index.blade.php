@@ -37,7 +37,7 @@
                             </td>
                             <td class="px-4 py-3 text-xs">
                                 @php
-                                    // Mapping status ke warna tema gelap
+
                                     $statusColor = match($order->status) {
                                         'completed' => 'bg-green-600/10 text-green-400 border border-green-600/30',
                                         'processing' => 'bg-blue-600/10 text-blue-400 border border-blue-600/30',

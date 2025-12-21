@@ -239,7 +239,7 @@
                 <div class="flex flex-wrap gap-2 text-left">
                     <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">No Wi-Fi</span>
                     <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">Smoking Area</span>
-                    <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">Vinyl Music</span>
+                    <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">Live Music</span>
                 </div>
             </div>
         </div>
@@ -252,9 +252,9 @@
                 <p class="font-sans text-[10px] text-dim tracking-[0.3em] uppercase opacity-60">Binjai, Sumatera Utara.</p>
             </div>
             <div class="flex items-center gap-8">
-                <a href="https://wa.me/6281234567890" target="_blank" class="text-dim hover:text-green-400 transition transform hover:scale-125"><i class="fab fa-whatsapp text-xl"></i></a>
-                <a href="https://www.instagram.com/irgiseptiann" target="_blank" class="text-dim hover:text-pink-400 transition transform hover:scale-125"><i class="fab fa-instagram text-xl"></i></a>
-                <a href="mailto:halo@ruangteduh.com" class="text-dim hover:text-gold transition transform hover:scale-125"><i class="far fa-envelope text-xl"></i></a>
+                <a href="https://wa.me/+62 878-2463-0419" target="_blank" class="text-dim hover:text-green-400 transition transform hover:scale-125"><i class="fab fa-whatsapp text-xl"></i></a>
+                <a href="https://www.instagram.com/firdaus_azka02" target="_blank" class="text-dim hover:text-pink-400 transition transform hover:scale-125"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="mailto:Firdausazka804@gmail.com" class="text-dim hover:text-gold transition transform hover:scale-125"><i class="far fa-envelope text-xl"></i></a>
             </div>
         </div>
         <div class="text-center mt-20 pt-10 border-t border-white/5 font-sans text-[10px] text-dim/30 uppercase tracking-[0.4em]">
