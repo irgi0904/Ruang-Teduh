@@ -43,7 +43,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
         
-        /* Preloader Styles */
         #preloader {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -148,7 +147,7 @@
      class="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition duration-1000 border border-white/10"
      alt="Moody Coffee">
                 <div class="absolute -bottom-10 -right-4 text-right">
-                    <p class="font-serif italic text-2xl text-gold opacity-50">"Sunyi."</p>
+                    <p class="font-serif italic text-2xl text-gold opacity-50"></p>
                 </div>
             </div>
         </div>
@@ -225,10 +224,10 @@
             <div class="space-y-4">
     <h3 class="font-serif text-gold text-xl italic">Titik Temu.</h3>
     <p class="font-sans text-sm text-dim leading-relaxed">
-        Jl. Teratai No. 12, Medan Kota.<br>
-        Sumatera Utara, 20711.
+        Jl. Gatot Subroto. 24, Medan Baru.<br>
+        Sumatera Utara, 20111.
     </p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Teratai+No.+12,+Binjai+Kota,+Sumatera+Utara+20711" 
+    <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Gatot+Subroto.+24,+Medan+Baru,+Sumatera+Utara+20111" 
        target="_blank" 
        class="inline-block font-sans text-[10px] text-gold border-b border-gold pb-1 uppercase tracking-[0.2em] hover:text-white hover:border-white transition">
         Buka di Google Maps
@@ -249,7 +248,7 @@
         <div class="max-w-7xl mx-auto flex flex-row justify-between items-center">
             <div class="flex flex-col text-left">
                 <h4 class="font-serif font-bold text-2xl text-moon italic tracking-wide">Ruang Teduh.</h4>
-                <p class="font-sans text-[10px] text-dim tracking-[0.3em] uppercase opacity-60">Binjai, Sumatera Utara.</p>
+                <p class="font-sans text-[10px] text-dim tracking-[0.3em] uppercase opacity-60">Medan, Sumatera Utara.</p>
             </div>
             <div class="flex items-center gap-8">
                 <a href="https://wa.me/+62 878-2463-0419" target="_blank" class="text-dim hover:text-green-400 transition transform hover:scale-125"><i class="fab fa-whatsapp text-xl"></i></a>
@@ -258,7 +257,8 @@
             </div>
         </div>
         <div class="text-center mt-20 pt-10 border-t border-white/5 font-sans text-[10px] text-dim/30 uppercase tracking-[0.4em]">
-            © 2025 • Dibangun saat insomnia.
+            © 2025 • Azka Firdaus.
+            
         </div>
     </footer>
 
