@@ -58,15 +58,28 @@ Route::prefix('pengguna')->name('pengguna.')->middleware(['auth', 'role:pengguna
     Route::get('/menu/{product}', [MenuController::class, 'show'])->name('menu.show');
     Route::prefix('cart')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('index');
-        Route::post('/add', [CartController::class, 'add'])->name('add');
-        Route::patch('/{id}', [CartController::class, 'update'])->name('update');
-        Route::delete('/{id}', [CartController::class, 'remove'])->name('remove');
-        Route::delete('/', [CartController::class, 'clear'])->name('clear');
-        Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::post('/add', [CartController::class, 'add'])->name('add');
+    Route::patch('/{id}', [CartController::class, 'update'])->name('update');
+    Route::delete('/{id}', [CartController::class, 'remove'])->name('remove');
+    Route::delete('/', [CartController::class, 'clear'])->name('clear');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     });
     Route::post('/checkout/process', [CartController::class, 'processCheckout'])->name('checkout.process');
     Route::get('/orders', [PenggunaOrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [PenggunaOrderController::class, 'show'])->name('orders.show');
+    
 });
 
 require __DIR__.'/auth.php';
+
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/up', function () {
+    // Menjalankan migrasi database
+    Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+    
+    // Membuat link storage agar gambar muncul
+    Artisan::call('storage:link');
+    
+    return "✅ Database & Storage Berhasil Diatur!";
+});
