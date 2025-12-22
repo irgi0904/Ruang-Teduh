@@ -31,10 +31,10 @@ class RegisteredUserController extends Controller
 
       
         $penggunaRole = Role::firstOrCreate(
-            ['name' => 'pengguna'],       
+            ['name' => 'pengguna'],      
             ['display_name' => 'Pengguna'] 
         );
- 
+
 
         $user = User::create([
             'name' => $request->name,
