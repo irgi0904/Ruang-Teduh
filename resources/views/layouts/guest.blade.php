@@ -35,7 +35,7 @@
     
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 relative z-10">
         <div class="mb-6 text-center">
-            <h1 class="font-serif text-3xl italic text-gold">ruang teduh.</h1>
+            <h1 class="font-serif text-3xl italic text-gold">Ruang Teduh.</h1>
             <p class="text-xs text-dim tracking-widest uppercase mt-2">Masuk ke dalam sunyi</p>
         </div>
 
@@ -44,7 +44,7 @@
         </div>
         
         <div class="mt-8 text-dim text-xs">
-            &copy; 2024 Ruang Teduh.
+            &copy; 2025 Ruang Teduh.
         </div>
     </div>
 </body>
