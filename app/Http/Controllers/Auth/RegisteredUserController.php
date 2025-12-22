@@ -29,10 +29,12 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // PERBAIKAN DI SINI:
-        // Menggunakan firstOrCreate agar jika role 'pengguna' belum ada di database,
-        // sistem akan otomatis membuatnya. Ini mencegah error "id on null".
-        $penggunaRole = Role::firstOrCreate(['name' => 'pengguna']);
+      
+        $penggunaRole = Role::firstOrCreate(
+            ['name' => 'pengguna'],       
+            ['display_name' => 'Pengguna'] 
+        );
+ 
 
         $user = User::create([
             'name' => $request->name,
