@@ -253,10 +253,10 @@
             <div class="space-y-4">
                 <h3 class="font-serif text-gold text-xl italic">Titik Temu.</h3>
                 <p class="font-sans text-sm text-dim leading-relaxed">
-                    Jl. Gatot Subroto. 24, Medan Baru.<br>
-                    Sumatera Utara, 20111.
+                    Jl. Abdullah Lubis No.65, Merdeka, Kec. Medan Baru, Kota Medan.<br>
+                    Sumatera Utara, 1965.
                 </p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Gatot+Subroto.+24,+Medan+Baru,+Sumatera+Utara+20111" 
+                <a href="https://maps.app.goo.gl/8NNTVZMTvzDfxfzcA?g_st=ac" 
                    target="_blank" 
                    class="inline-block font-sans text-[10px] text-gold border-b border-gold pb-1 uppercase tracking-[0.2em] hover:text-white hover:border-white transition">
                     Buka di Google Maps
