@@ -129,25 +129,54 @@
             <i class="fas fa-bars"></i>
         </button>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-void z-40 flex flex-col items-center justify-center gap-8 translate-x-full opacity-0 transition-all duration-500 ease-in-out md:hidden">
+        <div id="mobile-menu" class="fixed inset-0 bg-void/98 z-40 flex flex-col items-center justify-center gap-8 translate-x-full opacity-0 transition-all duration-500 ease-in-out md:hidden">
+            
+            <div class="font-serif text-2xl text-moon italic tracking-widest opacity-50 mb-4">Ruang Teduh.</div>
+
             @auth
-                @if(auth()->user()->role == 'admin')
-                    <a href="{{ route('admin.dashboard') }}" class="font-serif text-2xl text-gold italic">Admin Area</a>
-                @elseif(auth()->user()->role == 'kasir')
-                    <a href="{{ route('kasir.dashboard') }}" class="font-serif text-2xl text-gold italic">POS System</a>
-                @else
-                    <a href="{{ route('pengguna.menu.index') }}" class="font-serif text-2xl text-moon hover:text-gold italic">Menu</a>
-                @endif
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="font-sans text-sm text-dim uppercase tracking-widest hover:text-white">(Logout)</button>
-                </form>
+                <div class="w-72 bg-surface/50 border border-white/10 p-6 rounded-2xl backdrop-blur-sm text-center">
+                    <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4 text-gold text-2xl">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <p class="text-dim text-xs uppercase tracking-widest mb-1">Welcome back,</p>
+                    <p class="text-moon font-serif text-xl italic mb-6">{{ auth()->user()->name }}</p>
+                    
+                    @if(auth()->user()->role == 'admin')
+                        <a href="{{ route('admin.dashboard') }}" class="block w-full bg-gold text-void font-bold text-xs uppercase tracking-[0.2em] py-4 rounded-lg mb-3 hover:bg-white transition">Dashboard</a>
+                    @elseif(auth()->user()->role == 'kasir')
+                        <a href="{{ route('kasir.dashboard') }}" class="block w-full bg-gold text-void font-bold text-xs uppercase tracking-[0.2em] py-4 rounded-lg mb-3 hover:bg-white transition">POS System</a>
+                    @else
+                        <a href="{{ route('pengguna.menu.index') }}" class="block w-full bg-gold text-void font-bold text-xs uppercase tracking-[0.2em] py-4 rounded-lg mb-3 hover:bg-white transition">Lihat Menu</a>
+                    @endif
+
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="text-red-400 text-[10px] uppercase tracking-widest hover:text-white transition mt-2">Sign Out</button>
+                    </form>
+                </div>
+
             @else
-                <a href="{{ route('login') }}" class="font-serif text-3xl text-moon hover:text-gold italic">Login</a>
-                <a href="{{ route('register') }}" class="font-serif text-3xl text-moon hover:text-gold italic">Register</a>
+                <div class="w-72 bg-surface p-1 rounded-2xl border border-white/10 shadow-2xl shadow-gold/5 transform hover:scale-105 transition duration-500">
+                    <div class="bg-void/50 p-6 rounded-xl text-center border border-white/5">
+                        <h4 class="font-serif text-gold text-xl italic mb-2">Member Access.</h4>
+                        <p class="text-dim text-[10px] leading-relaxed mb-6">Masuk untuk memesan tempat duduk dan menikmati keheningan.</p>
+                        
+                        <a href="{{ route('login') }}" class="block w-full bg-gold text-void font-sans font-bold text-xs uppercase tracking-[0.2em] py-4 rounded-lg mb-3 hover:bg-white transition shadow-lg shadow-gold/20">
+                            Masuk (Login)
+                        </a>
+                        
+                        <a href="{{ route('register') }}" class="block w-full bg-transparent border border-white/10 text-dim font-sans font-bold text-xs uppercase tracking-[0.2em] py-4 rounded-lg hover:border-gold hover:text-gold transition">
+                            Daftar Baru
+                        </a>
+                    </div>
+                </div>
             @endauth
+
+            <div class="absolute bottom-10 text-[10px] text-dim/30 uppercase tracking-[0.3em]">
+                © 2025 Ruang Teduh
+            </div>
         </div>
-    </nav>
+        </nav>
 
     <header class="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 pt-24 md:pt-20">
         <div class="glow-spot top-20 left-20"></div>
@@ -304,7 +333,6 @@
                   ease: "expo.inOut",
                   onComplete: () => {
                       document.body.style.overflowY = "auto";
-                     
                   }
               })
               .to(".anim-text", { y: 0, opacity: 1, duration: 1.2, stagger: 0.2, ease: "power4.out" }, "-=0.5")
