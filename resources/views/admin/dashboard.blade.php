@@ -28,7 +28,6 @@
     </script>
     <style>
         .sidebar-transition { transition: transform 0.3s ease-in-out; }
-        /* Hide scrollbar for cleaner look */
         ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: #0F0F0F; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
@@ -62,10 +61,11 @@
             
             <p class="px-4 text-[10px] text-dim uppercase tracking-widest font-bold mb-2 mt-6">Manajemen</p>
 
-            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-void/50 text-dim hover:text-gold transition text-sm font-medium">
+            <a href="{{ route('admin.users.index') }}" class="flex items-center gap-3 p-3 rounded-lg hover:bg-void/50 text-dim hover:text-gold transition text-sm font-medium">
                 <i class="fas fa-users w-6 text-center"></i> Staff / User
             </a>
-            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-void/50 text-dim hover:text-gold transition text-sm font-medium">
+
+            <a href="{{ route('admin.reports.index') }}" class="flex items-center gap-3 p-3 rounded-lg hover:bg-void/50 text-dim hover:text-gold transition text-sm font-medium">
                 <i class="fas fa-file-invoice-dollar w-6 text-center"></i> Laporan Keuangan
             </a>
         </nav>
@@ -140,75 +140,46 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                
-                <div class="lg:col-span-2 bg-surface rounded-xl border border-white/5 overflow-hidden shadow-xl">
-                    <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center bg-void/30">
-                        <h3 class="font-serif italic text-gold text-sm md:text-base">Order Terbaru</h3>
-                        <a href="{{ route('admin.orders.index') }}" class="text-[10px] text-dim hover:text-white uppercase tracking-wider">Lihat Semua →</a>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm whitespace-nowrap">
-                            <thead class="bg-void/50 text-dim text-[10px] uppercase font-bold border-b border-white/5">
-                                <tr>
-                                    <th class="px-6 py-3">ID</th>
-                                    <th class="px-6 py-3">Pelanggan</th>
-                                    <th class="px-6 py-3">Total</th>
-                                    <th class="px-6 py-3">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-white/5">
-                                @forelse($recentOrders ?? [] as $order)
-                                <tr class="hover:bg-white/[0.02] transition cursor-pointer" onclick="window.location='{{ route('admin.orders.show', $order->id) }}'">
-                                    <td class="px-6 py-4 font-mono text-gold text-xs">#{{ $order->order_number }}</td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-moon font-medium">{{ $order->customer_name }}</div>
-                                        <div class="text-[10px] text-dim">{{ $order->kasir->name ?? 'System' }}</div>
-                                    </td>
-                                    <td class="px-6 py-4 font-bold text-moon">Rp {{ number_format($order->total, 0, ',', '.') }}</td>
-                                    <td class="px-6 py-4">
-                                        <span class="px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider 
-                                            {{ $order->status == 'completed' ? 'bg-green-500/10 text-green-400' : 
-                                               ($order->status == 'processing' ? 'bg-blue-500/10 text-blue-400' : 'bg-yellow-500/10 text-yellow-500') }}">
-                                            {{ $order->status }}
-                                        </span>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="4" class="px-6 py-8 text-center text-dim text-xs italic">Belum ada pesanan hari ini.</td>
-                                </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="w-full bg-surface rounded-xl border border-white/5 overflow-hidden shadow-xl">
+                <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center bg-void/30">
+                    <h3 class="font-serif italic text-gold text-sm md:text-base">Order Terbaru</h3>
+                    <a href="{{ route('admin.orders.index') }}" class="text-[10px] text-dim hover:text-white uppercase tracking-wider">Lihat Semua →</a>
                 </div>
-
-                <div class="bg-surface rounded-xl border border-white/5 overflow-hidden shadow-xl h-fit">
-                    <div class="px-6 py-4 border-b border-white/5 bg-void/30">
-                        <h3 class="font-serif italic text-gold text-sm md:text-base">Top Menu 🔥</h3>
-                    </div>
-                    <ul class="divide-y divide-white/5">
-                        @forelse($topProducts ?? [] as $index => $product)
-                        <li class="flex items-center justify-between px-6 py-4 hover:bg-white/[0.02]">
-                            <div class="flex items-center gap-3">
-                                <span class="text-dim font-mono text-xs">0{{ $index + 1 }}</span>
-                                <div>
-                                    <p class="text-sm font-medium text-moon">{{ $product->name }}</p>
-                                    <p class="text-[10px] text-dim">Terjual: {{ $product->total_qty }}x</p>
-                                </div>
-                            </div>
-                            <span class="text-xs font-bold text-gold">Rp {{ number_format($product->total_sales, 0, ',', '.') }}</span>
-                        </li>
-                        @empty
-                        <li class="px-6 py-8 text-center text-dim text-xs italic">Belum ada data penjualan.</li>
-                        @endforelse
-                    </ul>
-                    <div class="p-3 text-center border-t border-white/5">
-                        <a href="{{ route('admin.products.index') }}" class="text-[10px] font-bold text-dim hover:text-gold uppercase tracking-widest transition">Kelola Menu</a>
-                    </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
+                        <thead class="bg-void/50 text-dim text-[10px] uppercase font-bold border-b border-white/5">
+                            <tr>
+                                <th class="px-6 py-3">ID</th>
+                                <th class="px-6 py-3">Pelanggan</th>
+                                <th class="px-6 py-3">Total</th>
+                                <th class="px-6 py-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            @forelse($recentOrders ?? [] as $order)
+                            <tr class="hover:bg-white/[0.02] transition cursor-pointer" onclick="window.location='{{ route('admin.orders.show', $order->id) }}'">
+                                <td class="px-6 py-4 font-mono text-gold text-xs">#{{ $order->order_number }}</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-moon font-medium">{{ $order->customer_name }}</div>
+                                    <div class="text-[10px] text-dim">{{ $order->kasir->name ?? 'System' }}</div>
+                                </td>
+                                <td class="px-6 py-4 font-bold text-moon">Rp {{ number_format($order->total, 0, ',', '.') }}</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider 
+                                        {{ $order->status == 'completed' ? 'bg-green-500/10 text-green-400' : 
+                                          ($order->status == 'processing' ? 'bg-blue-500/10 text-blue-400' : 'bg-yellow-500/10 text-yellow-500') }}">
+                                        {{ $order->status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="4" class="px-6 py-8 text-center text-dim text-xs italic">Belum ada pesanan hari ini.</td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
 
         </div>
@@ -220,11 +191,9 @@
             const overlay = document.getElementById('sidebarOverlay');
             
             if (sidebar.classList.contains('-translate-x-full')) {
- 
                 sidebar.classList.remove('-translate-x-full');
                 overlay.classList.remove('hidden');
             } else {
-
                 sidebar.classList.add('-translate-x-full');
                 overlay.classList.add('hidden');
             }
