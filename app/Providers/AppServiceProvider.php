@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\URL; // Jangan lupa baris ini
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,10 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // --- BAGIAN PENTING UNTUK RAILWAY ---
-        // Memaksa aplikasi menggunakan HTTPS saat sudah di-upload (Production)
-        if($this->app->environment('production')) {
-            URL::forceScheme('https');
-        }
+        //
     }
 }
