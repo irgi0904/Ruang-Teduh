@@ -23,7 +23,8 @@
 
                                 <div class="w-20 h-20 bg-void rounded-lg overflow-hidden flex-shrink-0 border border-white/5">
                                     @if(isset($details['image']) && $details['image'])
-                                        <img src="{{ asset('storage/' . $details['image']) }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                                        {{-- PERBAIKAN DI SINI: Menghapus 'storage/' karena path sudah ada di folder public --}}
+                                        <img src="{{ asset($details['image']) }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
                                     @else
                                         <div class="w-full h-full flex items-center justify-center text-dim">
                                             <i class="fas fa-mug-hot"></i>
@@ -91,11 +92,11 @@
                     <h3 class="font-serif text-lg text-gold mb-6 italic border-b border-white/5 pb-2">Ringkasan</h3>
                     
                     <div class="space-y-4 mb-8">
-                        <div class="flex justify-between text-dim text-sm">
+                        <div class="justify-between flex text-dim text-sm">
                             <span>Subtotal</span>
                             <span class="text-moon font-mono">Rp {{ number_format($total, 0, ',', '.') }}</span>
                         </div>
-                        <div class="flex justify-between text-dim text-sm">
+                        <div class="justify-between flex text-dim text-sm">
                             <span>Pajak (10%)</span>
                             <span class="text-moon font-mono">Rp {{ number_format($total * 0.1, 0, ',', '.') }}</span>
                         </div>

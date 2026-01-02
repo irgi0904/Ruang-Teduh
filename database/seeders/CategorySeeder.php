@@ -32,6 +32,13 @@ class CategorySeeder extends Seeder
                 'is_active' => true,
             ],
             [
+                'name' => 'Makanan Berat',
+                'slug' => 'makanan-berat',
+                'description' => 'Hidangan utama untuk mengenyangkan harimu',
+                'icon' => '🍽️',
+                'is_active' => true,
+            ],
+            [
                 'name' => 'Minuman Dingin',
                 'slug' => 'minuman-dingin',
                 'description' => 'Kesegaran di setiap momen',
