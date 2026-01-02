@@ -189,7 +189,8 @@
                 Gelap itu <br><span class="italic text-dim">menenangkan.</span>
             </h1>
             <p class="font-sans text-sm md:text-base text-dim leading-relaxed max-w-md mx-auto md:mx-0 mb-8 md:mb-10 anim-text opacity-0 translate-y-10 font-light">
-                Buat kamu yang otaknya baru jalan jam 12 malam, atau yang cuma butuh tempat sembunyi dari silau-nya ekspektasi orang lain.
+                Healing nggak selalu liburan mahal.
+                  Kadang cukup kopi dan tenang.
             </p>
             <div class="flex justify-center md:justify-start gap-4 anim-text opacity-0 translate-y-10">
                 <a href="#menu-gelap" class="px-8 py-3 bg-moon text-void font-sans text-sm font-bold tracking-wide hover:bg-gold transition duration-500 rounded-sm">
@@ -249,7 +250,7 @@
                 <div class="p-4">
                     <div class="flex justify-between items-baseline mb-2">
                         <h3 class="font-serif text-lg text-moon italic">Pancake</h3>
-                        <span class="font-sans text-gold text-sm">79k</span>
+                        <span class="font-sans text-gold text-sm">42k</span>
                     </div>
                     <p class="font-sans text-xs text-dim leading-relaxed">Tumpukan manis yang tebal dan empuk, disiram sirup klasik.</p>
                 </div>
@@ -294,7 +295,7 @@
             <div class="space-y-4">
                 <h3 class="font-serif text-gold text-xl italic">Suasana.</h3>
                 <div class="flex flex-wrap justify-center md:justify-start gap-2 text-left">
-                    <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">No Wi-Fi</span>
+                    <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">Wi-Fi</span>
                     <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">Smoking Area</span>
                     <span class="px-3 py-1 bg-surface border border-white/5 rounded-full text-[9px] uppercase tracking-widest text-dim">Live Music</span>
                 </div>
