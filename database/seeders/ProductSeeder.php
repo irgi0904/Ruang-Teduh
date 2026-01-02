@@ -118,7 +118,7 @@ class ProductSeeder extends Seeder
                 'slug' => 'matcha-latte-dingin',
                 'description' => 'Matcha premium dari Jepang dengan susu',
                 'story' => 'Hijau menenangkan seperti pepohonan di pagi hari.',
-                'image' => 'img/products/matcha.jpg',
+                'image' => 'img/products/Matcha.jpg',
                 'price' => 35000,
                 'stock' => 100,
                 'is_available' => true,
