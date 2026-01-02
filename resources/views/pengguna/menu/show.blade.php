@@ -3,7 +3,9 @@
         <div class="grid grid-cols-1 md:grid-cols-2">
             
             <div class="h-64 md:h-auto bg-gray-200 relative">
-                <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-full object-cover">
+                {{-- Pemanggilan gambar yang sudah disesuaikan --}}
+                <img src="{{ asset($product->image) }}" class="w-full h-full object-cover">
+                
                 <button onclick="history.back()" class="absolute top-4 left-4 bg-white/50 backdrop-blur p-2 rounded-full hover:bg-white transition">
                     <i class="fas fa-arrow-left text-gray-800"></i>
                 </button>
@@ -25,7 +27,8 @@
 
                     <p class="text-gray-500 leading-relaxed mb-6">
                         {{ $product->description }}
-                        Rasakan kenikmatan bumbu rahasia yang meresap sempurna. Cocok dimakan selagi hangat.
+                        <br>
+                        <span class="text-sm italic text-gray-400">Rasakan kenikmatan bumbu rahasia yang meresap sempurna. Cocok dimakan selagi hangat.</span>
                     </p>
                     
                     <div class="h-px bg-gray-100 my-6"></div>

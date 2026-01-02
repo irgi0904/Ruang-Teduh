@@ -18,7 +18,8 @@
             
             <div class="relative h-60 overflow-hidden bg-void">
                 @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" 
+                    {{-- Di sini perubahan utamanya: Langsung memanggil path dari database --}}
+                    <img src="{{ asset($product->image) }}" 
                          class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition duration-1000 ease-in-out grayscale group-hover:grayscale-0" 
                          alt="{{ $product->name }}">
                 @else

@@ -9,6 +9,7 @@ use App\Models\Topping;
 use App\Models\Variant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -48,7 +49,10 @@ class ProductController extends Controller
         $validated['slug'] = Str::slug($validated['name']);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('products', 'public');
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('img/products'), $filename);
+            $validated['image'] = 'img/products/' . $filename;
         }
 
         $product = Product::create($validated);
@@ -103,10 +107,14 @@ class ProductController extends Controller
         $validated['slug'] = Str::slug($validated['name']);
 
         if ($request->hasFile('image')) {
-            if ($product->image) {
-                \Storage::disk('public')->delete($product->image);
+            if ($product->image && File::exists(public_path($product->image))) {
+                File::delete(public_path($product->image));
             }
-            $validated['image'] = $request->file('image')->store('products', 'public');
+            
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('img/products'), $filename);
+            $validated['image'] = 'img/products/' . $filename;
         }
 
         $product->update($validated);
@@ -120,8 +128,8 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        if ($product->image) {
-            \Storage::disk('public')->delete($product->image);
+        if ($product->image && File::exists(public_path($product->image))) {
+            File::delete(public_path($product->image));
         }
 
         $product->delete();
